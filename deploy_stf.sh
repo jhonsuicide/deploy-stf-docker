@@ -13,7 +13,7 @@
 # 
 #######################################################################################
 
-NETNAME=""
+NETNAME="stf.wirecard"
 NETWORK_INTERFACES=$(ls /sys/class/net)
 
 DNS_ADDRESS=$(nmcli device show ${NETNAME}|grep "IP4\.DNS\[1\]"|awk '{print $2}')
