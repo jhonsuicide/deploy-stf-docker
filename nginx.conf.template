@@ -49,7 +49,7 @@ http {
 
   server {
     listen 80;
-    server_name stf.wirecard.org;
+    server_name stf.wirecard;
     keepalive_timeout 70;
     root /dev/null;
 
