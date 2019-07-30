@@ -7,31 +7,31 @@ events {
 
 http {
   upstream stf_app {
-    server 192.168.255.100:3100 max_fails=0;
+    server 192.168.56.102:3100 max_fails=0;
   }
 
   upstream stf_auth {
-    server 192.168.255.100:3200 max_fails=0;
+    server 192.168.56.102:3200 max_fails=0;
   }
 
   upstream stf_storage_apk {
-    server 192.168.255.100:3300 max_fails=0;
+    server 192.168.56.102:3300 max_fails=0;
   }
 
   upstream stf_storage_image {
-    server 192.168.255.100:3400 max_fails=0;
+    server 192.168.56.102:3400 max_fails=0;
   }
 
   upstream stf_storage {
-    server 192.168.255.100:3500 max_fails=0;
+    server 192.168.56.102:3500 max_fails=0;
   }
 
   upstream stf_websocket {
-    server 192.168.255.100:3600 max_fails=0;
+    server 192.168.56.102:3600 max_fails=0;
   }
 
   upstream stf_api {
-    server 192.168.255.100:3700 max_fails=0;
+    server 192.168.56.102:3700 max_fails=0;
   }
 
   types {
@@ -49,7 +49,7 @@ http {
 
   server {
     listen 80;
-    server_name wirecard.stf;
+    server_name stf.test;
     keepalive_timeout 70;
     root /dev/null;
 
@@ -58,7 +58,7 @@ http {
 
     # Handle stf-provider@floor4.service
     location ~ "^/d/floor4/([^/]+)/(?<port>[0-9]{5})/$" {
-      proxy_pass http://192.168.255.100:$port/;
+      proxy_pass http://192.168.56.102:$port/;
       proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection $connection_upgrade;
